@@ -6,9 +6,11 @@ Five queries were implemented as MongoDB aggregations or finds. Each has an esti
 |---|---|---|---|
 | 1 | Which products belong to more than one category? | Self-join | ~1 per day, if at all |
 | 2 | What are the top five cities by employment? | Group by | ~1 per day (store logistics check) |
-| 3 | Who is the employee with ID 12? | Lookup by ID | ~5 per day |
-| 4 | What city does the employee with ID 12 live in? | Join | ~5 per day |
-| 5 | When is the birthday of the employee with ID 12? | Projection | ~1 per day |
+| 3 | Who is the employee with a given ID? | Lookup by ID | ~5 per day |
+| 4 | What city does a given employee live in? | Join | ~5 per day |
+| 5 | When is a given employee's birthday? | Projection | ~1 per day |
+
+The three employee queries are written for any employee ID. `EmployeeID: 12` is just the example value used for testing, so swap in any ID.
 
 ## 1. Products in more than one category (self-join)
 
@@ -49,13 +51,14 @@ db.cities.aggregate([
 ]);
 ```
 
-## 3. Employee with ID 12
+## 3. Look up an employee by ID
 
 ```js
+// Example: employee 12
 db.employees.find({ EmployeeID: 12 });
 ```
 
-## 4. City of the employee with ID 12
+## 4. City an employee lives in
 
 ```js
 db.employees.aggregate([
@@ -71,7 +74,7 @@ db.employees.aggregate([
 ]);
 ```
 
-## 5. Birthday of the employee with ID 12
+## 5. An employee's birthday
 
 ```js
 db.employees.find(
