@@ -2,7 +2,7 @@
 
 ## 1. Entity-Relationship Diagram
 
-![ER diagram of the national grocery database](../images/erd.png)
+![ER diagram of the national grocery database](/images/erd.png)
 
 The diagram models how a national grocery system tracks cities, customers, product categories, products, employees, and sales, and how those entities relate to each other.
 
