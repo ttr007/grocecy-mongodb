@@ -58,12 +58,18 @@ grocery-database/
 
 The raw CSV files are not included. They are large and come from course materials.
 
-## My role
+I served as the team's **database administrator** and **database developer**.
+ 
+**Database administrator**
+- Set up and managed the MongoDB Atlas cluster
+- Loaded the seven CSV files (6M+ rows) and tested the data after import, including converting an `"unknown"` boolean value to `null`
+  
+**Database developer**
+- Estimated the feasibility of the proposed queries before building them
+- Wrote, tested, and implemented the MongoDB queries
+- Evaluated indexes and pipeline changes against measured runtimes
+- Authored the project documentation: query write-ups with frequency estimates, and the optimization analysis explaining which changes were kept and why
 
-<!-- TODO: fill this in. Interviewers will ask what YOU did on a team project. -->
-- Set up and hosted the MongoDB Atlas cluster
-- Loaded the data and handled the cleaning step
-- TODO: add what else you did (ERD design? query writing? index experiments? write-up?)
 
 ## What I'd do next
 
