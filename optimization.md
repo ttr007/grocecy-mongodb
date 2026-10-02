@@ -85,7 +85,7 @@ Average runtimes per query:
 
 - **Two changes at once.** The `Discount` index and the pipeline reorder were applied together, so the 340 ms → 4 ms improvement can't be split between them. Testing each change separately would show which one mattered more.
 - **Averages, not distributions.** Runtimes are averages, and the number of runs isn't recorded here. <!-- TODO: add the number of runs per query if you know it -->
-- **Frequencies are estimates.** The daily frequencies in [Queries.MD](Queries.MD) are reasoned guesses, not measured usage.
+- **Frequencies are estimates.** The daily frequencies in [queries.MD](queries.MD) are reasoned guesses, not measured usage.
 - **The remaining slow query.** The "product under $10" check, at about 95 ms, is now the slowest query in the set and wasn't improved by these changes.
 
 ## Ideas to try next
