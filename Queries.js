@@ -1,6 +1,6 @@
 // Grocery database: indexes and queries
 // Run in mongosh or MongoDB Compass against the grocery database.
-// Explanations and runtimes: see docs/queries.md and docs/optimization.md
+// Explanations and runtimes: see queries.md and optimization.md
 
 // ---------------------------------------------------------------------------
 // Index
