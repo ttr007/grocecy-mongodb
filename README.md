@@ -46,17 +46,21 @@ MongoDB · MongoDB Atlas (free cloud cluster) · Aggregation pipelines · Indexi
 ```
 grocery-database/
 ├── README.md
-├── docs/
-│   ├── design.md
-│   ├── queries.md
-│   └── optimization.md
-├── images/
-│   └── erd.png            
-└── queries/
-    └── queries.js
+├── Design.md
+├── Queries.md
+├── Optimization.md
+├── queries.js
+└── images/
+    └── erd.png
 ```
 
-The raw CSV files are not included. They are large and come from course materials.
+## Data
+ 
+The project uses the [Grocery Sales Database](https://www.kaggle.com/datasets/andrexibiza/grocery-sales-dataset) from Kaggle, published by andrexibiza. It contains simulated grocery sales data from 2018-01-01 to 2018-05-09. Because the data is simulated, the project is about database design and performance tuning, not real-world sales findings.
+ 
+The CSV files are not included in this repo because of their size. To reproduce the project, download them from the Kaggle page above.
+
+## Role
 
 I served as the team's **database administrator** and **database developer**.
  
