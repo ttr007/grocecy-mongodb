@@ -7,7 +7,7 @@ This document covers the changes that were considered, which ones were kept, and
 | Change | Outcome | Decision |
 |---|---|---|
 | Index on `ProductID` (products) | Query time stayed nearly the same | **Not kept** |
-| Index on price (products) | Not tested; price filter runs rarely | **Not created** |
+| Index on 'Price' (products) | Not tested; price filter runs rarely | **Not created** |
 | Index on `Discount` (sales), descending | Efficient filtering and sorting of discounted items | **Kept** |
 | Reordered the top-5-discounts pipeline | Less data processed by expensive stages | **Kept** |
 | Using the dataset's own IDs instead of generated ones | Preserves relationships, simpler lookups | **Kept** (but slow to reload) |
@@ -22,10 +22,8 @@ This document covers the changes that were considered, which ones were kept, and
 
 **Decision:** The cost of creating and maintaining the index wasn't worth the small time savings.
 
-### 2. Index on price (considered, not created)
- 
-<!-- TODO: confirm this matches what you actually ran before publishing -->
- 
+### 2. Index on 'Price' (considered, not created)
+  
 **Observation:** Filtering products by price (for example, checking whether an item costs under $10) took about 95 ms. Without an index on price, the database scans the entire products collection to answer it.
  
 **Decision:** We chose not to add a price index. Based on our frequency estimates, this query would run rarely, so the time saved wouldn't justify maintaining another index.
