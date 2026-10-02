@@ -18,7 +18,7 @@ Reordering the aggregation pipeline and adding an index on `Discount` cut the "t
 | Top cities by employment (avg) | 2 ms | 2 ms |
 | **Sum of average runtimes** | **440.252 ms** | **104.252 ms** |
 
-Two changes were made to the discounts query at the same time (the index and the pipeline reorder), so the speedup is credited to both together. See [Optimization](docs/optimization.md) for details and limitations.
+Two changes were made to the discounts query at the same time (the index and the pipeline reorder), so the speedup is credited to both together. See [Optimization](optimization.md) for details and limitations.
 
 ## What this project covers
 
@@ -36,10 +36,10 @@ MongoDB · MongoDB Atlas (free cloud cluster) · Aggregation pipelines · Indexi
 
 | File | Contents |
 |---|---|
-| [docs/design.md](docs/design.md) | ER diagram, the 20 business questions, database setup, data loading |
-| [docs/queries.md](docs/queries.md) | Implemented queries with estimated daily frequencies |
-| [docs/optimization.md](docs/optimization.md) | Index experiments, pipeline changes, runtimes, limitations |
-| [queries/queries.js](queries/queries.js) | All queries and index statements in one runnable file |
+| [design.md](design.md) | ER diagram, the 20 business questions, database setup, data loading |
+| [queries.md](queries.md) | Implemented queries with estimated daily frequencies |
+| [optimization.md](optimization.md) | Index experiments, pipeline changes, runtimes, limitations |
+| [queries.js](queries.js) | All queries and index statements in one runnable file |
 
 ## Repository structure
 
@@ -51,7 +51,7 @@ grocery-database/
 │   ├── queries.md
 │   └── optimization.md
 ├── images/
-│   └── erd.png            <- add your ER diagram here
+│   └── erd.png            
 └── queries/
     └── queries.js
 ```
