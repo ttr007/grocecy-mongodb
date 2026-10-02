@@ -31,7 +31,7 @@ The schema was designed around 20 questions that different stakeholders might as
 19. What are the top 5 times (by hour) for sales to occur?
 20. Which customer ID has bought the most groceries in terms of sales?
 
-Several of these (such as #8, #12, #17) were implemented and tested. See [queries.md](queries.md).
+Several of these (such as #8, #12, #17) were implemented and tested. See [Queries.md](Queries.md).
 
 ## 3. Database instance
 
