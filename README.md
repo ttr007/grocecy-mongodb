@@ -60,7 +60,7 @@ The project uses the [Grocery Sales Database](https://www.kaggle.com/datasets/an
  
 The CSV files are not included in this repo because of their size. To reproduce the project, download them from the Kaggle page above.
 
-## Role
+## My role
 
 I served as the team's **database administrator** and **database developer**.
  
