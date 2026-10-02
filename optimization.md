@@ -7,6 +7,7 @@ This document covers the changes that were considered, which ones were kept, and
 | Change | Outcome | Decision |
 |---|---|---|
 | Index on `ProductID` (products) | Query time stayed nearly the same | **Not kept** |
+| Index on price (products) | Not tested; price filter runs rarely | **Not created** |
 | Index on `Discount` (sales), descending | Efficient filtering and sorting of discounted items | **Kept** |
 | Reordered the top-5-discounts pipeline | Less data processed by expensive stages | **Kept** |
 | Using the dataset's own IDs instead of generated ones | Preserves relationships, simpler lookups | **Kept** (but slow to reload) |
@@ -21,7 +22,17 @@ This document covers the changes that were considered, which ones were kept, and
 
 **Decision:** The cost of creating and maintaining the index wasn't worth the small time savings.
 
-### 2. Index on `Discount` (kept)
+### 2. Index on price (considered, not created)
+ 
+<!-- TODO: confirm this matches what you actually ran before publishing -->
+ 
+**Observation:** Filtering products by price (for example, checking whether an item costs under $10) took about 95 ms. Without an index on price, the database scans the entire products collection to answer it.
+ 
+**Decision:** We chose not to add a price index. Based on our frequency estimates, this query would run rarely, so the time saved wouldn't justify maintaining another index.
+ 
+Its runtime is included in the totals below, unchanged before and after, since we didn't modify it.
+
+### 3. Index on `Discount` (kept)
 
 **Hypothesis:** Queries retrieving the top five most discounted items filter and sort on `Discount`, so an index would speed both up. The index is ordered descending so the highest discounts are the cheapest to reach.
 
@@ -31,13 +42,13 @@ This document covers the changes that were considered, which ones were kept, and
 db.sales.createIndex({ Discount: -1 });
 ```
 
-### 3. Keeping the dataset's original IDs (kept)
+### 4. Keeping the dataset's original IDs (kept)
 
 When the data was inserted, MongoDB could have generated its own unique IDs instead of using the ID columns already in the dataset. Generated IDs would have required extra work to map back to the original IDs in every ID-based relationship. Using the existing IDs keeps relationships between collections intact, makes lookups more straightforward, and helps preserve data consistency.
 
 The tradeoff is time: reinserting a dataset this large is slow.
 
-### 4. Restructuring the top-5-discounts pipeline (kept)
+### 5. Restructuring the top-5-discounts pipeline (kept)
 
 The original pipeline joined the `products` collection to every sale *before* sorting, so a large amount of unnecessary data went through the expensive stages. The new version filters and sorts first, so those operations run on only the relevant documents.
 
