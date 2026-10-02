@@ -85,4 +85,4 @@ db.employees.find(
 
 ## Why frequency estimates matter
 
-Indexes speed up reads but cost storage and slow down writes. Estimating how often each query runs gave the team a way to judge whether an index was worth keeping. See [Optimization.MD](Optimization.MD) for the experiments.
+Indexes speed up reads but cost storage and slow down writes. Estimating how often each query runs gave the team a way to judge whether an index was worth keeping. See [optimization.md](optimization.md) for the experiments.
